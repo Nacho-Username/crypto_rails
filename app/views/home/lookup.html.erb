@@ -1,0 +1,24 @@
+<h3>Crypto Currency Lookup</h3>
+
+<%= form_tag home_lookup_path, :method => "POST" do %>
+<%= text_field_tag "sym", nil, placeholder: "Enter Crypto Symbol", size: 50 %>
+<%= submit_tag 'Lookup Stock Price' %>
+<% end %>
+
+<% if @symbol %>
+  <% for x in @look_up_coin["data"] %>
+    <% if @symbol == x["symbol"] %>
+      <div class="card text-white bg-dark mt-3 mb-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title mb-2"><%= x["name"] %></h5>
+          <p class="card-text mb-0">$ <%= x["quote"]["USD"]["price"] %></p>
+          <p class="card-text mb-0">Rank: <%= x["cmc_rank"] %></p>
+          <p class="card-text mb-0">24h Change: <%= x["quote"]["USD"]["percent_change_24h"] %></p>
+          <div class="card-body mt-3 p-0">
+            <a href="#" class="btn btn-info">Track Coin</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

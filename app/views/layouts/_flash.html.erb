@@ -1,0 +1,9 @@
+<% flash.each do |name, msg| %>
+
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+  <i class="bi bi-bell pe-2"></i>
+  <div>
+    <%= content_tag(:div, msg) %>
+  </div>
+</div>
+<% end %>
