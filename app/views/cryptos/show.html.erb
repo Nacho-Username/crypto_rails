@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Symbol</th>
+      <th>User</th>
+      <th>Cost per</th>
+      <th>Amount Owned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="alert" role="alert">
+      <td><%= @crypto.symbol %></td>
+      <td><%= @crypto.user_id %></td>
+      <td><%= @crypto.cost_per %></td>
+      <td><%= @crypto.amount_owned %></td>
+      <td>
+        <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true"><i class="fa fa-close"></i></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_crypto_path(@crypto) %> |
+<%= link_to 'Back', cryptos_path %>
